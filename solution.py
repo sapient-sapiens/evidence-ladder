@@ -641,9 +641,33 @@ def prediction_for(pdf: Path, state_out: dict | None = None) -> dict:
     return pred
 
 
+def _fallback_prediction(pdf: Path) -> dict:
+    """Safe abstention when a packet crashes the extraction ladder."""
+    return {
+        "case_id": pdf.stem,
+        "applicant_name": "UNREADABLE",
+        "species_code": "UNREADABLE",
+        "home_world": "UNREADABLE",
+        "visa_class": "UNREADABLE",
+        "sponsor_id": "SPN-0000",
+        "arrival_date": "1970-01-01",
+        "declared_purpose": "UNREADABLE",
+        "risk_flags": "none",
+        "fee_status": "unknown",
+        "adjudication": "NEEDS_REVIEW",
+        "confidence": 0.01,
+    }
+
+
 def _worker(pdf_str: str) -> tuple[dict, dict]:
+    pdf = Path(pdf_str)
     state: dict = {}
-    pred = prediction_for(Path(pdf_str), state_out=state)
+    try:
+        pred = prediction_for(pdf, state_out=state)
+    except Exception as exc:  # noqa: BLE001 — one bad packet must not kill the run
+        print(f"WARN packet_failed {pdf.name}: {type(exc).__name__}: {exc}", flush=True)
+        pred = _fallback_prediction(pdf)
+        state = {"hard": None, "rule_decision": "NEEDS_REVIEW", "packet_failed": True}
     return pred, state
 
 

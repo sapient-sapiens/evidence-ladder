@@ -205,6 +205,8 @@ def canonical_vocab_lines(text: str) -> list[str]:
                     value = _norm_vocab(" ".join(tokens[index : index + width]))
                     if value:
                         observed_values.append(value)
+            if not observed_values:
+                continue
             ranked: list[tuple[int, str]] = []
             for value in vocab:
                 target = _norm_vocab(value)
