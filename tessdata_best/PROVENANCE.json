@@ -1,0 +1,17 @@
+{
+  "source_repo": "https://github.com/tesseract-ocr/tessdata_best",
+  "source_path": "eng.traineddata",
+  "source_ref": "main",
+  "download_url": "https://github.com/tesseract-ocr/tessdata_best/raw/main/eng.traineddata",
+  "license": "Apache-2.0",
+  "license_url": "https://github.com/tesseract-ocr/tessdata_best/blob/main/LICENSE",
+  "github_api_size_bytes": 15400601,
+  "local_size_bytes": 15400601,
+  "sha256": "8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba",
+  "github_git_blob_sha": "176dc3220de7db34d3b3aecbfa42043a6038348b",
+  "notes": "Float LSTM tessdata_best English model; OEM 1 only. Experiment cache \u2014 not system install.",
+  "vendored_path": "solution/tessdata_best/eng.traineddata",
+  "oem_required": 1,
+  "portable": "architecture-independent traineddata; ARM/x86 share same file",
+  "system_tessdata_unmodified": true
+}

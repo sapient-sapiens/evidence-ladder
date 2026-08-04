@@ -1,0 +1,8 @@
+.git
+.gitignore
+AGENTS.md
+README.md
+dev
+outputs
+__pycache__
+*.pyc

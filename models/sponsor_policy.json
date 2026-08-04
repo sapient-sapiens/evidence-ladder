@@ -1,0 +1,43 @@
+{
+  "anti_leakage": {
+    "contains_case_ids": false,
+    "contains_document_hashes": false,
+    "contains_filenames": false,
+    "contains_sponsor_field_values": true
+  },
+  "criteria": {
+    "clean_non_dip_denial_rate": 1.0,
+    "clean_probe": "non-DIP, non-TRANSIT, paid, risk_flags=none, non-stale",
+    "dip_denial_rate": 0.0,
+    "minimum_causal_non_dip_examples": 3,
+    "minimum_clean_non_dip_examples": 3,
+    "minimum_dip_examples": 1,
+    "required_leave_one_fold_selections": 8,
+    "single_exception_required_leave_one_fold_selections": 6
+  },
+  "crossfit_selection_counts": {
+    "SPN-2718": 8,
+    "SPN-7331": 8
+  },
+  "fit_manifest": "dev800.txt",
+  "fit_manifest_sha256": "f9e1c84c2b633e1e7f96df3a8d0b6ab50d9b39d41aeff23c9b817aa4701c567b",
+  "learned_revoked_sponsors": {
+    "SPN-2718": {
+      "all_non_dip_denied": 12,
+      "clean_non_dip_denied": 9,
+      "dip_non_denied": 5,
+      "required_leave_one_fold_selections": 8,
+      "selection_mode": "clean",
+      "total_examples": 17
+    },
+    "SPN-7331": {
+      "all_non_dip_denied": 10,
+      "clean_non_dip_denied": 8,
+      "dip_non_denied": 5,
+      "required_leave_one_fold_selections": 8,
+      "selection_mode": "clean",
+      "total_examples": 15
+    }
+  },
+  "version": "e010-v1"
+}
